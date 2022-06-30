@@ -36,7 +36,7 @@ void push(element data) {
 	}
 	else {
 		stack[++top] = data;
-		printf("Successfully added.\n\n");
+		printf("Successfully pushed.\n\n");
 	}
 
 	return;

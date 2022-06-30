@@ -35,6 +35,7 @@ void add_queue(element item) {
 	}
 	else {
 		queue[++rear] = item;
+		printf("Successfully added.\n\n");
 	}
 
 	return;
@@ -45,8 +46,18 @@ element delete_queue() {
 		printf("[ERROR]: Queue is empty!!\n\n");
 	}
 	else {
+		printf("Successfully deleted.\n\n");
 		return queue[++front];
 	}
+}
+
+void show() {
+	for (int i = front; i < rear + 1; i++) {
+		printf("%d ", queue[i]);
+	}
+	printf("\n\n");
+	
+	return;
 }
 
 static void __queue_simulator(int nr_tokens, char *tokens[]) {
@@ -74,12 +85,15 @@ static void __queue_simulator(int nr_tokens, char *tokens[]) {
 			printf("How to use: show\n\n");
 		}
 		else {
-
+			show();
 		}
 	}
 	else {
 		printf("Valid commands:\n");
 		printf("- add\n");
+		printf("- delete\n");
+		printf("- show\n");
+		printf("\n");
 	}
 }
 
@@ -121,6 +135,7 @@ int main() {
 		fgets(command, sizeof(command), stdin);
 
 		__parse_command(command, &nr_tokens, tokens);
+		__queue_simulator(nr_tokens, tokens);
 	}
 
 	return 0;
