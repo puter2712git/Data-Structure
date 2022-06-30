@@ -52,7 +52,7 @@ element delete_queue() {
 }
 
 void show() {
-	for (int i = front; i < rear + 1; i++) {
+	for (int i = front + 1; i < rear + 1; i++) {
 		printf("%d ", queue[i]);
 	}
 	printf("\n\n");
